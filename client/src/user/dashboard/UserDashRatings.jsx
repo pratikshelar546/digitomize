@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Form, useLoaderData } from 'react-router-dom'
 import Checkbox from '../components/Checkbox'
 import { submitUserFormData, userDashboardDetails } from '../../../api'
+import {toast} from "react-toastify";
 
 export async function loader() {
   try {
@@ -47,8 +48,36 @@ export default function UserDashRatings() {
 
   async function handleSubmit(event) {
     event.preventDefault();
-    const res = await submitUserFormData(formData);
-    console.log(res);
+    // console.log(formData)
+    try {
+      const res = await submitUserFormData(formData);
+      toast.success('👍 Updated Successfully!', {
+        position: "top-right",
+        autoClose: 2000,
+        limit: '1',
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+      });
+      console.log(res);
+
+    } catch (err) {
+      toast.error('🦄 Wow so easy!', {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+      });
+      console.log(err)
+    }
+
   }
 
   return (

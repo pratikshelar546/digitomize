@@ -1,8 +1,7 @@
-import { Form, useNavigation, Link, redirect, useActionData, useLoaderData } from "react-router-dom"
+import {Form, Link, redirect, useActionData, useLoaderData, useNavigation} from "react-router-dom"
 
 import './css/Login.css'
-import { loginUser, isLoggedIn } from "../../api"
-
+import {isLoggedIn, loginUser} from "../../api"
 
 
 export function loader({ request }){
@@ -22,16 +21,16 @@ export async function action({ request }) {
         return redirect('/user/dashboard/personal')
     }
     catch(err) {
-        const errorMessage = err.response.data.error
-        return errorMessage
+        return err.response.data.error
     } 
 }
 
 
 export default function Login() {
     const navigation = useNavigation()
-    const errorMessage = useActionData()
     const message = useLoaderData()
+    const errorMessage = useActionData()
+
     return (
         <div className="outer-login-div">
             <div className="login-container">
@@ -60,7 +59,7 @@ export default function Login() {
                     </div>
                     <div className="md:flex md:items-center items-center">
                         <div className="md:w-2/3 ">
-                            <button disabled={navigation.state === "submitting"} className="shadow gradient-custom drop-shadow-2xl focus:shadow-outline focus:outline-none font-light text-white py-2 px-12 rounded">
+                            <button  disabled={navigation.state === "submitting"} className="shadow gradient-custom drop-shadow-2xl focus:shadow-outline focus:outline-none font-light text-white py-2 px-12 rounded">
                                 {navigation.state === "submitting"
                                     ? "Logging in..."
                                     : "Log in"

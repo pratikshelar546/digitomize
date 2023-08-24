@@ -1,5 +1,7 @@
 import { Form, useLoaderData } from "react-router-dom"
 import { useState } from "react"
+import { toast } from "react-toastify"
+
 import Checkbox from "../components/Checkbox"
 import { submitUserFormData, userDashboardDetails } from "../../../api"
 
@@ -56,8 +58,35 @@ export default function UserDashPersonal() {
     async function handleSubmit(event) {
         event.preventDefault();
         // console.log(formData)
-        const res = await submitUserFormData(formData);
-        console.log(res);
+        try {
+            const res = await submitUserFormData(formData);
+            toast.success('👍 Updated Successfully!', {
+                position: "top-right",
+                autoClose: 2000,
+                limit: '1',
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "colored",
+            });
+            console.log(res);
+
+        } catch (err) {
+            toast.error('🦄 Wow so easy!', {
+                position: "top-right",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "colored",
+            });
+            console.log(err)
+        }
+
     }
 
 
