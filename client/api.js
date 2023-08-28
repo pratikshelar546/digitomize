@@ -33,10 +33,13 @@ export async function signupUser({ username, firstName, email, password }) {
       message: res.data.error,
     };
   }
-
   const token = res.data.token;
   Cookies.set("jwt", token, { secure: true });
   return res;
+}
+
+export function signOut () {
+    Cookies.remove("jwt");
 }
 
 export function getUserNameFromCookie() {

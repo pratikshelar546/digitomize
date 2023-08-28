@@ -2,7 +2,6 @@ import { Form, useLoaderData } from "react-router-dom"
 import { useState } from "react"
 import { toast } from "react-toastify"
 
-import Checkbox from "../components/Checkbox"
 import { submitUserFormData, userDashboardDetails } from "../../../api"
 
 export async function loader() {
