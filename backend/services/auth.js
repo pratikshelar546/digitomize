@@ -21,7 +21,8 @@ const setUser = async (userData) => {
       github,
       codechef,
       leetcode,
-      codeforces
+      codeforces,
+      atcoder
     });
 
     await newUser.save();

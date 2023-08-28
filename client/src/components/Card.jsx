@@ -1,18 +1,20 @@
 import { useState, useEffect, memo } from "react";
 import { Link } from "react-router-dom";
 
-import Button from "./Button";
-import "./css/Card.css";
-import geeksforgeeks from "../assets/geeksforgeeks.svg";
-import leetcode from "../assets/leetcode.svg";
-import codingninjas from "../assets/codingninjas.png";
-import codechef from "../assets/codechef.svg";
-import codeforces from "../assets/codeforces.svg";
-import CopyToClipboard from "./CopyToClipboard";
+import Button from './Button';
+import './css/Card.css'
+import geeksforgeeks from '../assets/geeksforgeeks.svg'
+import leetcode from '../assets/leetcode.svg'
+import atcoder from '../assets/atcoder.svg'
+import codestudio from '../assets/codestudio.png'
+import codechef from '../assets/codechef.svg'
+import codeforces from '../assets/codeforces.svg'
+import CopyToClipboard from './CopyToClipboard';
 
 const hostToSVGMap = {
   leetcode: leetcode,
-  codingninjas: codingninjas,
+  atcoder:atcoder,
+  codestudio:codestudio,
   codeforces: codeforces,
   geeksforgeeks: geeksforgeeks,
   codechef: codechef,

@@ -70,7 +70,11 @@ const userSchema = new mongoose.Schema({
         type: contestToggleSchema,
         default: { data: null, showOnWebsite: false }
     },
-    codingninjas: {
+    atcoder: {
+        type: contestToggleSchema,
+        default: { data: null, showOnWebsite: false }
+    },
+    codestudio:{
         type: contestToggleSchema,
         default: { data: null, showOnWebsite: false }
     },

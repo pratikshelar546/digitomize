@@ -53,9 +53,13 @@ const handleUserDashboard = async (req, res) => {
           data: user.leetcode.username || null,
           showOnWebsite: user.leetcode.showOnWebsite,
         },
-        codingninjas: {
-          data: user.codingninjas.username || null,
-          showOnWebsite: user.codingninjas.showOnWebsite,
+        atcoder: {
+          data: user.atcoder.username || null,
+          showOnWebsite: user.atcoder.showOnWebsite,
+        },
+        codestudio:{
+          data:user.codestudio.username||null,
+          showOnWebsite:user.codestudio.showOnWebsite,
         }
 
       }

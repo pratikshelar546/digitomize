@@ -3,20 +3,20 @@ import { Link, useParams } from "react-router-dom";
 
 import "./css/IndividualCard.css";
 
-import geeksforgeeks from "../assets/geeksforgeeks.svg";
-import leetcode from "../assets/leetcode.svg";
-import codingninjas from "../assets/codingninjas.png";
-import codechef from "../assets/codechef.svg";
-import codeforces from "../assets/codeforces.svg";
-import Navbar from "./Navbar";
-import CopyToClipboard from "./CopyToClipboard";
-
-const backendUrl = import.meta.env.VITE_REACT_APP_BACKEND_URL;
+import geeksforgeeks from '../assets/geeksforgeeks.svg'
+import leetcode from '../assets/leetcode.svg'
+import atcoder from '../assets/atcoder.svg'
+import codestudio from '../assets/codestudio.png'
+import codechef from '../assets/codechef.svg'
+import codeforces from '../assets/codeforces.svg'
+import Navbar from './Navbar'
+import CopyToClipboard from './CopyToClipboard';
 
 function IndividualCard() {
   const hostToSVGMap = {
     leetcode: leetcode,
-    codingninjas: codingninjas,
+    atcoder:atcoder,
+    codestudio:codestudio,
     codeforces: codeforces,
     geeksforgeeks: geeksforgeeks,
     codechef: codechef,

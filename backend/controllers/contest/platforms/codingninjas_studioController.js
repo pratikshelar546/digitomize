@@ -30,11 +30,8 @@ async function codingninjas_studio_c() {
                         vanity: contest.slug,
                         url: `https://codingninjas.com/studio/contests/${contest.slug}`,
                         startTimeUnix: contest.event_start_time,
-                        // duration: 0
-                        // duration: Math.floor(contest.event_duration / 60)
                         duration: Math.floor((contest.event_end_time - contest.event_start_time) / 60),
                     }));
-                    // console.log(contestsWithHost);
                     resolve(contestsWithHost);
                 } catch (error) {
                     console.log("Error parsing JSON:", error);

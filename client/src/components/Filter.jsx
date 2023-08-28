@@ -38,6 +38,7 @@ const platforms = [
   "geeksforgeeks",
   "codechef",
   "codeforces",
+  "atcoder"
   // Add more platforms as needed
 ];
 function Filter() {

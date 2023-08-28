@@ -5,6 +5,7 @@ const codechefContests = require('./platforms/codechefController');
 const codeforcesContests = require('./platforms/codeforcesController');
 const gfgContests = require('./platforms/gfgController');
 const leetcodeContests = require('./platforms/leetcodeController');
+const atcoderContests = require('./platforms/atcoderController');
 const codingninjas_studioContests = require('./platforms/codingninjas_studioController');
 const { UpcomingContest, AllContest } = require('../../models/contest/Contest');
 
@@ -78,6 +79,10 @@ async function syncContests() {
         console.log("<======= GeeksForGeeks =======>");
         const geeksforgeeksData = await gfgContests.geeksforgeeks_c();
         await addToDB(geeksforgeeksData, "GeeksForGeeks");
+        // * atCoder Section
+        console.log("<======= atCoder =======>");
+        const atCoderData = await atcoderContests.atcoderContests();
+        await addToDB(atCoderData, "AtCoder");
 
         //* Codeforces Section
         console.log("<======= CodeForces =======>");
