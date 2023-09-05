@@ -6,6 +6,7 @@ import logo from "../assets/digitomizeLogo.png";
 // import { useUserAuth } from '../context/UserAuthContext';
 import { signOut } from "firebase/auth";
 import { auth } from "../../firebase";
+import { UserButton } from "@clerk/clerk-react"
 
 function Navbar() {
   // const name = getUserNameFromCookie()
@@ -41,6 +42,7 @@ function Navbar() {
           <Link to="/">
             <img src={logo} alt="Logo" width="75%" />
           </Link>
+          <UserButton />
         </div>
 
         <div className={`${isMenuActive ? "bg-black h-full flex justify-center inset-x-0 inset-y-0 z-50 fixed flex-col items-center" : "hidden"} md:flex`}>
@@ -60,7 +62,7 @@ function Navbar() {
             </li>
           </Link>
           <Link to="/login">
-            <li onClick={() => toggleActive()}  className="text-nav-text  flex text-3xl font-light p-4 lowercase hover:white">
+            <li onClick={() => toggleActive()} className="text-nav-text  flex text-3xl font-light p-4 lowercase hover:white">
               Login
             </li>
           </Link>

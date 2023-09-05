@@ -1,5 +1,14 @@
 import { createBrowserRouter, createRoutesFromElements, RouterProvider, Route } from "react-router-dom"
 import { UserAuthContextProvider } from "./context/UserAuthContext"
+import {
+    ClerkProvider,
+    SignedIn,
+    SignedOut,
+    RedirectToSignIn,
+    SignIn,
+    SignUp,
+    UserButton,
+} from "@clerk/clerk-react";
 
 import './App.css'
 import Layout from "./components/Layout"
@@ -19,19 +28,23 @@ import Updates from "./components/Updates"
 import NewHome from "./components/NewHome"
 // import ProtectedRoute from "./ProtectedRoute"
 
+const clerkPubKey = "pk_test_YWR2YW5jZWQtY29kLTI5LmNsZXJrLmFjY291bnRzLmRldiQ"
+
 const router = createBrowserRouter(createRoutesFromElements(
     <Route >
         <Route path="/" element={<Layout />} errorElement={<ErrorPage />}>
             <Route index element={<Home />} />
-            <Route path="login" element={<Login />} loader={loginLoader} />
-            <Route path="signup" element={<Signup />} />
+            <Route path="login/*" element={<SignIn  />} />
+            <Route path="signup/*" element={<SignUp />} />
             <Route path="contests" element={<Home />} />
             <Route path="updates" element={<Updates />} />
             <Route path="home" element={<NewHome />} />
             <Route path="contests/:vanity" element={<IndividualCard />} />
         </Route>
-        <Route path="/user" element={<ProtectedRoute />}>
-            <Route path="dashboard" element={<UserDashboard />} >
+        <Route path="/user">
+            <Route path="dashboard" element={<><SignedIn ><UserDashboard /></SignedIn><SignedOut>
+                <RedirectToSignIn />
+            </SignedOut></>} >
                 <Route path="personal" element={<UserDashPersonal />} loader={userDashPersonalLoader} />
                 <Route path="ratings" element={<UserDashRatings />} loader={userDashRatingsLoader} />
                 <Route path="github" element={<UserDashGithub />} loader={userDashGithubLoader} />
@@ -43,9 +56,11 @@ const router = createBrowserRouter(createRoutesFromElements(
 
 function App() {
     return (
-        <UserAuthContextProvider>
-            <RouterProvider router={router} />
-        </UserAuthContextProvider>
+        <ClerkProvider publishableKey={clerkPubKey}>
+            <UserAuthContextProvider>
+                <RouterProvider router={router} />
+            </UserAuthContextProvider>
+        </ClerkProvider>
     )
 }
 
