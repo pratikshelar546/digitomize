@@ -21,7 +21,7 @@ import Updates from "./components/Updates"
 const router = createBrowserRouter(createRoutesFromElements(
     <Route >
         <Route path="/" element={<Layout />} errorElement={<ErrorPage />}>
-            <Route index element={<Home />} />
+            <Route index element={<NewHome />} />
             <Route path="login" element={<Login />} loader={loginLoader} />
             <Route path="signup" element={<Signup />} />
             <Route path="contests" element={<Home />} />
@@ -34,8 +34,8 @@ const router = createBrowserRouter(createRoutesFromElements(
                 <Route path="ratings" element={<UserDashRatings />} loader={userDashRatingsLoader} />
                 <Route path="github" element={<UserDashGithub />} loader={userDashGithubLoader} />
             </Route>
-            <Route path="profile/:username" element={<UserProfile />} loader={userProfileLoader} />
         </Route>
+        <Route path="/user/profile/:username" element={<UserProfile />} loader={userProfileLoader} />
     </Route>
 ))
 
