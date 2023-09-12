@@ -7,7 +7,6 @@ const contestSyncer = require("./contest/controllers/contestController");
 const contestRouter = require("./contest/routes/contestRoutes");
 const userRoutes = require('./users/routes/userRoutes');
 const bodyParser = require('body-parser');
-
 const app = express();
 
 console.log(process.env.TEST);

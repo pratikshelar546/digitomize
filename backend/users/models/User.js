@@ -4,7 +4,27 @@ const stringToggleSchema = new mongoose.Schema({
     data: String,
     showOnWebsite: Boolean
 });
-
+const githubSchema = new mongoose.Schema({
+    username: String,//done
+    totalCommits: Number, 
+    totalStars: Number, //done
+    totalRepos: Number, //done
+    totalContributions: Number, 
+    totalPullRequests: Number,
+    totalIssues: Number,
+    showOnWebsite: Boolean,
+    repos: String  , //done
+    contributions: [{
+        name: String,
+        url: String,
+        stars: Number,
+        forks: Number,
+        lastUpdated: String,
+    }],
+    followers: Number,//done    
+    following: Number,//done
+    fetchTime: Number,
+});
 const numberToggleSchema = new mongoose.Schema({
     data: Number,
     showOnWebsite: Boolean
@@ -65,7 +85,7 @@ const userSchema = new mongoose.Schema({
         default: { data: null, showOnWebsite: false }
     },
     github: {
-        type: stringToggleSchema,
+        type: githubSchema,
         default: { data: null, showOnWebsite: false }
     },
     codechef: {
@@ -80,6 +100,9 @@ const userSchema = new mongoose.Schema({
         type: contestToggleSchema,
         default: { username: null, rating: null, badge: null, showOnWebsite: false, fetchTime: 0, attendedContestsCount: null }
     },
+    // skills: {
+    //     type: [String],
+    // },
     updatesToday: [
         {
             timestamp: { type: Date, default: Date.now },

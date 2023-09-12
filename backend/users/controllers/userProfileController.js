@@ -3,7 +3,7 @@ const { codeforces_u } = require('./platforms/codeforcesUpdater');
 const { codechef_u } = require('./platforms/codechefUpdater'); // Import your CodeChef updater function
 const { leetcode_u } = require('./platforms/leetcodeUpdater'); // Import your LeetCode updater function
 const { updateUser } = require('../services/updateUser');
-
+const {github_u} = require('./platforms/githubUpdater');
 // Mapping of platform names to their updater functions
 const platformUpdaters = {
   codeforces: codeforces_u,
@@ -51,7 +51,8 @@ const handleUserDataUpdate = async (user) => {
 const handleUserProfilePreview = async (req, res) => {
   try {
     const username = req.params.username;
-
+    const abc=await github_u("Saanvi26");
+    console.log("USER CONTROL ::::::",abc);
     // Fetch the user's data from the database
     const user = await getUser(username);
 
