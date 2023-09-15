@@ -18,7 +18,8 @@ router.get('/dashboard', addUID, handleUserDashboard);
 
 router.post('/dashboard', addUID, handleUpdateUserProfile);
 
-router.get('/profile', handleUserProfilePreview);
+router.get('/profile/:username', handleUserProfilePreview);
+
 
 // router.post('/profile/:username', addUID, checkUserOwnership, handleUpdateUserProfile);
 

@@ -6,24 +6,15 @@ const stringToggleSchema = new mongoose.Schema({
 });
 const githubSchema = new mongoose.Schema({
     username: String,//done
-    totalCommits: Number, 
-    // totalStars: Number, //done
+    totalCommits: Number,//done
+    totalCommits2023: Number,//done
     totalRepos: Number, //done
-    // totalContributions: Number, 
-    totalPullRequests: Number,
+    totalPRs: Number,
     totalIssues: Number,
-    showOnWebsite: Boolean,
-    repos: String  ,
-    contributions: [{
-        name: String,
-        url: String,
-        stars: Number,
-        forks: Number,
-        lastUpdated: String,
-    }],
+    showOnWebsite: { type: Boolean, default: true },  
     followers: Number,//done    
     following: Number,//done
-    fetchTime: Number,
+    fetchTime: Number,//done
 });
 const numberToggleSchema = new mongoose.Schema({
     data: Number,
