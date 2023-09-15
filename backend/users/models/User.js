@@ -7,13 +7,13 @@ const stringToggleSchema = new mongoose.Schema({
 const githubSchema = new mongoose.Schema({
     username: String,//done
     totalCommits: Number, 
-    totalStars: Number, //done
+    // totalStars: Number, //done
     totalRepos: Number, //done
-    totalContributions: Number, 
+    // totalContributions: Number, 
     totalPullRequests: Number,
     totalIssues: Number,
     showOnWebsite: Boolean,
-    repos: String  , //done
+    repos: String  ,
     contributions: [{
         name: String,
         url: String,

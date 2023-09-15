@@ -51,7 +51,7 @@ const handleUserDataUpdate = async (user) => {
 const handleUserProfilePreview = async (req, res) => {
   try {
     const username = req.params.username;
-    const abc=await github_u("Saanvi26");
+    const abc=await github_u("pranshugupta54");
     console.log("USER CONTROL ::::::",abc);
     // Fetch the user's data from the database
     const user = await getUser(username);
